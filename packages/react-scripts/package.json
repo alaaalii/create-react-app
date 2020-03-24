@@ -1,10 +1,10 @@
 {
-  "name": "react-scripts",
+  "name": "react-scripts-with-custom-build-path",
   "version": "3.4.1",
-  "description": "Configuration and scripts for Create React App.",
+  "description": "Configuration and scripts for Create React App with customizable build path.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/create-react-app.git",
+    "url": "https://github.com/alaaalii/create-react-app.git",
     "directory": "packages/react-scripts"
   },
   "license": "MIT",

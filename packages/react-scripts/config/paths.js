@@ -56,11 +56,16 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 
+// Get the appBuild directory from the environment variable REACT_BUILD_DIR
+const REACT_BUILD_DIR = process.env.REACT_BUILD_DIR
+  ? process.env.REACT_BUILD_DIR
+  : "build";
+
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp(REACT_BUILD_DIR),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
@@ -82,7 +87,7 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp(REACT_BUILD_DIR),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
@@ -117,7 +122,7 @@ if (
   module.exports = {
     dotenv: resolveOwn(`${templatePath}/.env`),
     appPath: resolveApp('.'),
-    appBuild: resolveOwn('../../build'),
+    appBuild: resolveOwn(`../../${REACT_BUILD_DIR}`),
     appPublic: resolveOwn(`${templatePath}/public`),
     appHtml: resolveOwn(`${templatePath}/public/index.html`),
     appIndexJs: resolveModule(resolveOwn, `${templatePath}/src/index`),
